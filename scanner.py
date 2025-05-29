@@ -4,7 +4,7 @@ import ipaddress
 
 # Configuration
 NMAP_PING_SCAN_OPTIONS = ["-sn"]                            # Don't Change; Ping scan (no port scan)
-NMAP_PORT_SCAN_OPTIONS = ["-v", "-sV", "--open"]            # Aggressive scan for live services
+NMAP_PORT_SCAN_OPTIONS = ["-v", "-sV", "--open", "-T4"]     # Aggressive scan for live services
 NMAP_OUTPUT_FORMAT = "-oG"                                  # Grepable output for ping scan
 NMAP_SAVE_FORMAT = "-oN"                                    # Normal output for port scan
 
@@ -34,13 +34,6 @@ def get_live_ips(network):
         print(f"Error discovering live hosts for network {network}: {e}")
         return []
 
-def is_valid_ip_or_network(entry):
-    try:
-        ipaddress.ip_network(entry, strict=False)
-        return True
-    except ValueError:
-        return False
-
 def scan_ips(input_file, output_dir):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -55,11 +48,7 @@ def scan_ips(input_file, output_dir):
         if not item:
             print("Skipping empty entry.")
             continue
-
-        if not is_valid_ip_or_network(item):
-            print(f"Skipping invalid entry: {item}")
-            continue
-
+            
         print(f"Processing {item}...")
 
         live_ips = get_live_ips(item) if '/' in item else [item]
