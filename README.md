@@ -9,6 +9,8 @@ This tool helps automate network reconnaissance by:
 
 ---
 
+![Description](images/demo.png)
+
 ## 📁 Project Structure
 
 ├── main.py # Main runner: scanning + reporting + emailing
