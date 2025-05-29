@@ -9,7 +9,7 @@ This tool helps automate network reconnaissance by:
 
 ---
 
-![Description](images/demo.png)
+![Demo](images/demo.png)
 
 ## 📁 Project Structure
 
