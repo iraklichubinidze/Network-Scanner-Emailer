@@ -28,7 +28,7 @@ This tool helps automate network reconnaissance by:
 ## 📦 Setup
 ```
 Clone the repository:
-git clone `https://github.com/iraklichubinidze/Network-Scanner-Emailer.git`
+git clone https://github.com/iraklichubinidze/Network-Scanner-Emailer.git
 cd network-scanner-emailer
 
 Install dependencies:
